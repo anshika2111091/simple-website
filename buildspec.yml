@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Building website..."
+artifacts:
+  files:
+    - "**/*"
+  base-directory: .  # The folder containing index.html and style.css
