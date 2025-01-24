@@ -1,3 +1,18 @@
+# version: 0.2
+
+# phases:
+#   build:
+#     commands:
+#       - echo "Building website..."
+
+#     post_build:
+#     commands:
+#       - echo "Deploying to S3"
+#       - aws s3 sync . s3://simple-website-bucket-222 --delete  
+# artifacts:
+#   files:
+#     - "**/*"
+#   base-directory: .  # The folder containing index.html and style.css
 version: 0.2
 
 phases:
@@ -5,11 +20,13 @@ phases:
     commands:
       - echo "Building website..."
 
-    post_build:
+  post_build:
     commands:
       - echo "Deploying to S3"
       - aws s3 sync . s3://simple-website-bucket-222 --delete  
+
 artifacts:
   files:
     - "**/*"
-  base-directory: .  # The folder containing index.html and style.css
+  base-directory: .  # The folder containing index.html and style.css.
+
