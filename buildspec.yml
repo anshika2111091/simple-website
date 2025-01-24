@@ -4,6 +4,11 @@ phases:
   build:
     commands:
       - echo "Building website..."
+
+    post_build:
+    commands:
+      - echo "Deploying to S3"
+      - aws s3 sync . s3://simple-website-bucket-222 --delete  
 artifacts:
   files:
     - "**/*"
