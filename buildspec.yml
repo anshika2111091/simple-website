@@ -1,4 +1,20 @@
 
+# version: 0.2
+
+# phases:
+#   build:
+#     commands:
+#       - echo "Building website..."
+
+#   post_build:
+#     commands:
+#       - echo "Deploying to S3"
+#       - aws s3 sync . s3://simple-website-bucket-222 --delete  
+
+# artifacts:
+#   files:
+#     - "**/*"
+#   base-directory: .  # The folder containing index.html and style.css.
 version: 0.2
 
 phases:
@@ -9,10 +25,12 @@ phases:
   post_build:
     commands:
       - echo "Deploying to S3"
-      - aws s3 sync . s3://simple-website-bucket-222/simple-website --delete  
+      - aws s3 sync . s3://simple-website-bucket-222 --delete  
 
 artifacts:
   files:
     - "**/*"
-  base-directory: .  # The folder containing index.html and style.css.
+  base-directory: .  # The folder containing index.html and style.css
+  name: simple-website  # Specifies the name of the artifact, which will be a folder or compressed file
+
 
